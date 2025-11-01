@@ -1,0 +1,60 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"goerli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "608060405260015f553480156012575f5ffd5b50603e80601e5f395ff3fe60806040525f5ffdfea2646970667358221220c2a6384b0607333ba7e747479cf178107bdf7ebafbd98c92c1965ea8cd5ed5d064736f6c634300081e0033",
+			"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x1 PUSH0 SSTORE CALLVALUE DUP1 ISZERO PUSH1 0x12 JUMPI PUSH0 PUSH0 REVERT JUMPDEST POP PUSH1 0x3E DUP1 PUSH1 0x1E PUSH0 CODECOPY PUSH0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE PUSH0 PUSH0 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xC2 0xA6 CODESIZE 0x4B MOD SMOD CALLER EXTCODESIZE 0xA7 SWAPN 0x47 SELFBALANCE SWAP13 CALL PUSH25 0x107BDF7EBAFBD98C92C1965EA8CD5ED5D064736F6C63430008 0x1E STOP CALLER ",
+			"sourceMap": "867:291:0:-:0;;;940:1;992:38;;867:291;;;;;;;;;;;;;;;;"
+		},
+		"deployedBytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "60806040525f5ffdfea2646970667358221220c2a6384b0607333ba7e747479cf178107bdf7ebafbd98c92c1965ea8cd5ed5d064736f6c634300081e0033",
+			"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH0 PUSH0 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xC2 0xA6 CODESIZE 0x4B MOD SMOD CALLER EXTCODESIZE 0xA7 SWAPN 0x47 SELFBALANCE SWAP13 CALL PUSH25 0x107BDF7EBAFBD98C92C1965EA8CD5ED5D064736F6C63430008 0x1E STOP CALLER ",
+			"sourceMap": "867:291:0:-:0;;;;;"
+		},
+		"gasEstimates": {
+			"creation": {
+				"codeDepositCost": "12400",
+				"executionCost": "22169",
+				"totalCost": "34569"
+			}
+		},
+		"methodIdentifiers": {}
+	},
+	"abi": []
+}

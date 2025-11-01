@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/CreatorStreamNative.sol": "ReentrancyGuard3"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/CreatorStreamNative.sol": {
+			"keccak256": "0xc6d352aec2e302634316caf5053d5db74036984ae4b44ed7a09690c836d8e510",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1854f0d31e9f3fd04ce1d25e7d31a64fbaa38c53ed545310f58216fa536c7372",
+				"dweb:/ipfs/QmbtyFEbXmz49AEF7TbGrLB1BiR5RW7Z35eMdfVqkXQBsK"
+			]
+		}
+	},
+	"version": 1
+}

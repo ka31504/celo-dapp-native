@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/PlayToEarnNative.sol": "ReentrancyGuard"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/PlayToEarnNative.sol": {
+			"keccak256": "0xdae2ea02749083ebe925df2eac9c5ef4b1658175398d5f6b29d405da97cb459e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b5e6c9991de5f040f577ebfbfad2b686f5c0da7224ea3190e47aafb6027d273d",
+				"dweb:/ipfs/QmaHzh6n9nx9Jk4gbaMDXN6zKk2t21Jsf16TveZT9xyfJk"
+			]
+		}
+	},
+	"version": 1
+}
