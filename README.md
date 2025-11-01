@@ -1,34 +1,34 @@
-# CELO DApp Suite: Ứng dụng Web3 sử dụng CELO làm phương tiện thanh toán
+# CELO DApp Suite: Web3 Applications Using CELO as the Native Payment Token
 
-## 1. Tổng quan dự án
+## 1. Project Overview
 
-**CELO DApp Suite** là một bộ ứng dụng phi tập trung (DApp) triển khai trên **mạng Celo Sepolia Testnet**, sử dụng **đồng CELO** làm đơn vị thanh toán gốc.  
-Dự án thể hiện cách xây dựng và triển khai các mô hình kinh tế Web3 phổ biến thông qua hợp đồng thông minh (smart contract) trên nền tảng tương thích EVM.
+**CELO DApp Suite** is a decentralized application (DApp) collection deployed on the **Celo Sepolia Testnet**, using **CELO** as the native payment token.  
+The project demonstrates how to build and deploy Web3 economic models through smart contracts on an EVM-compatible blockchain.
 
-Bộ dự án bao gồm bốn hợp đồng thông minh chính:
+The suite includes four main smart contracts:
 
-| Tên ứng dụng | Chức năng |
-|---------------|------------|
-| Play-to-Earn (P2E) | Người chơi nhận thưởng CELO khi đạt điểm số tối thiểu |
-| NFT Ticketing | Bán vé sự kiện dạng NFT (ERC-721), thanh toán bằng CELO |
-| Creator Stream | Nhà tài trợ gửi dòng tiền CELO dần dần cho người sáng tạo nội dung |
-| Pay-per-View (PPV) | Người xem trả CELO để xem nội dung có giới hạn thời gian |
+| Application | Description |
+|--------------|--------------|
+| Play-to-Earn (P2E) | Players earn CELO rewards by achieving the target score |
+| NFT Ticketing | Event tickets represented as ERC-721 NFTs, purchased with CELO |
+| Creator Stream | Sponsors gradually stream CELO payments to content creators |
+| Pay-per-View (PPV) | Viewers pay CELO to access limited-time premium content |
 
-Các hợp đồng được viết bằng **Solidity**, triển khai và kiểm thử trực tiếp trên **Remix IDE** kết hợp **MetaMask**.
-
----
-
-## 2. Công nghệ sử dụng
-
-- Ngôn ngữ: Solidity `^0.8.24`  
-- Nền tảng: Celo Sepolia Testnet  
-- Ví: MetaMask  
-- Môi trường phát triển: Remix Ethereum IDE  
-- Thư viện: OpenZeppelin (Ownable, ERC721, ReentrancyGuard)
+All contracts are written in **Solidity**, deployed, and tested directly using **Remix IDE** integrated with **MetaMask**.
 
 ---
 
-## 3. Cấu trúc thư mục dự án
+## 2. Technologies Used
+
+- Language: Solidity `^0.8.24`  
+- Platform: Celo Sepolia Testnet  
+- Wallet: MetaMask  
+- Development Environment: Remix Ethereum IDE  
+- Libraries: OpenZeppelin (Ownable, ERC721, ReentrancyGuard)
+
+---
+
+## 3. Project Structure
 
 ```
 celo-dapp-native/
@@ -44,9 +44,9 @@ celo-dapp-native/
 
 ---
 
-## 4. Thiết lập mạng Celo Sepolia trong MetaMask
+## 4. Configuring the Celo Sepolia Network in MetaMask
 
-### Bước 1. Thêm mạng mới
+### Step 1. Add the network
 
 ```
 Network Name: Celo Sepolia Testnet
@@ -56,137 +56,138 @@ Currency Symbol: CELO
 Block Explorer: https://celo-sepolia.blockscout.com
 ```
 
-### Bước 2. Nhận CELO testnet để sử dụng làm gas và thanh toán
+### Step 2. Get test CELO for gas and transactions
 
-Truy cập faucet chính thức:  
+Access the official faucet:  
 https://faucet.celo.org/celo-sepolia
 
 ---
 
-## 5. Hướng dẫn triển khai hợp đồng (Cách thủ công – Remix IDE)
+## 5. Deploying Contracts (Manual – Remix IDE)
 
-1. Mở Remix IDE tại: https://remix.ethereum.org  
-2. Kết nối MetaMask và chọn mạng **Celo Sepolia Testnet**  
-3. Chuyển sang tab **Deploy & Run Transactions**  
-4. Trong phần Environment, chọn **Injected Provider – MetaMask**  
-5. Triển khai lần lượt các hợp đồng như sau:
+1. Open Remix IDE: https://remix.ethereum.org  
+2. Connect MetaMask and select **Celo Sepolia Testnet**  
+3. Go to the **Deploy & Run Transactions** tab  
+4. Set Environment → **Injected Provider – MetaMask**  
+5. Deploy each contract in this order:
 
 ### PlayToEarnNative
-- Tham số khởi tạo:
-  ```
-  rewardPerWin = 100000000000000000   // 0.1 CELO
-  minScore = 50
-  ```
-- Nhấn **Deploy**, xác nhận giao dịch trên MetaMask.
+Constructor parameters:
+```
+rewardPerWin = 100000000000000000   // 0.1 CELO
+minScore = 50
+```
+Click **Deploy** and confirm the transaction on MetaMask.
 
 ### Ticketing721Native
-- Không có tham số khởi tạo.  
-- Nhấn **Deploy** và xác nhận.
+No constructor parameters.  
+Click **Deploy** and confirm.
 
 ### CreatorStreamNative
-- Không có tham số khởi tạo.  
-- Nhấn **Deploy** và xác nhận.
+No constructor parameters.  
+Click **Deploy** and confirm.
 
 ### PayPerViewNative
-- Không có tham số khởi tạo.  
-- Nhấn **Deploy** và xác nhận.
+No constructor parameters.  
+Click **Deploy** and confirm.
 
-Sau khi triển khai, Remix sẽ hiển thị địa chỉ hợp đồng tại mục **Deployed Contracts**.
-
----
-
-## 6. Cách sử dụng và kiểm thử
-
-### 6.1. PlayToEarn (Chơi để nhận thưởng CELO)
-- `fund()`: nạp quỹ thưởng CELO vào hợp đồng (nhập Value = 1 CELO trong Remix)
-- `play(score)`: người chơi nhập điểm, nếu >= `minScore` sẽ nhận thưởng CELO
-- `setParams(newReward, newMinScore)`: thay đổi phần thưởng và độ khó
-
-Ví dụ:
-- Gọi `fund()` với Value = 1 CELO  
-- Sau đó gọi `play(80)` → người chơi đạt điểm >= 50 nhận 0.1 CELO
+After deployment, Remix displays contract addresses under **Deployed Contracts**.
 
 ---
 
-### 6.2. NFT Ticketing (Vé sự kiện dưới dạng NFT)
+## 6. Usage and Testing Guide
+
+### 6.1 PlayToEarn (Earn CELO Rewards)
+- `fund()`: deposit CELO rewards into the contract (set Value = 1 CELO in Remix)  
+- `play(score)`: players input a score; if ≥ `minScore`, they receive CELO rewards  
+- `setParams(newReward, newMinScore)`: adjust reward and difficulty settings  
+
+Example:
+- Call `fund()` with Value = 1 CELO  
+- Then call `play(80)` → player with score ≥ 50 earns 0.1 CELO
+
+---
+
+### 6.2 NFT Ticketing (Event Tickets)
 - `createEvent(name, priceWei, startTime, maxSupply, lock, baseURI, payout)`  
-- `buy(eventId)`: mua vé NFT bằng CELO
+- `buy(eventId)`: purchase NFT tickets with CELO  
 
-Ví dụ:
+Example:
 ```
 createEvent("Concert", 500000000000000000, 1736000000, 100, true, "ipfs://...", payoutAddress)
 ```
-Người mua nhập Value = 0.5 CELO → gọi `buy(1)` → nhận NFT, tiền được gửi đến ví của nhà tổ chức.
+Buyer sets Value = 0.5 CELO → calls `buy(1)` → receives NFT ticket, CELO is transferred to the organizer’s wallet.
 
 ---
 
-### 6.3. Creator Stream (Dòng tiền cho người sáng tạo)
-- `createStream(creator, start, end)`: người tài trợ gửi CELO để dòng tiền được phát dần  
-- `withdraw(id, amount)`: người sáng tạo rút phần tiền đã tích lũy
+### 6.3 Creator Stream (Continuous Payment Streaming)
+- `createStream(creator, start, end)`: sponsor deposits CELO to be streamed gradually  
+- `withdraw(id, amount)`: creator withdraws the earned portion over time  
 
-Ví dụ:
-- Người tài trợ gửi 3 CELO → `createStream(creator, now, now+30days)`  
-- Sau vài ngày, người sáng tạo gọi `withdraw(1, 1000000000000000000)` để rút 1 CELO.
+Example:
+- Sponsor sends 3 CELO → `createStream(creator, now, now+30days)`  
+- Creator calls `withdraw(1, 1000000000000000000)` to withdraw 1 CELO after several days.
 
 ---
 
-### 6.4. Pay-per-View (Nội dung trả tiền theo lượt xem)
-- `upsertContent(contentId, priceWei, accessWindow, active)`: đăng nội dung mới  
-- `buy(contentId)`: người xem mua quyền truy cập bằng CELO  
-- `hasAccess(contentId, viewer)`: kiểm tra quyền xem còn hiệu lực
+### 6.4 Pay-per-View (Content Monetization)
+- `upsertContent(contentId, priceWei, accessWindow, active)`: creator registers content  
+- `buy(contentId)`: viewer pays CELO to access content  
+- `hasAccess(contentId, viewer)`: check access validity  
 
-Ví dụ:
+Example:
 ```
 upsertContent(keccak256("video#1"), 200000000000000000, 86400, true)
 ```
-Người xem gọi `buy(contentId)` với Value = 0.2 CELO → có quyền xem trong 24 giờ.
+Viewer calls `buy(contentId)` with Value = 0.2 CELO → gains access for 24 hours.
 
 ---
 
-## 7. Kiểm tra giao dịch
+## 7. Transaction Tracking
 
-Tất cả giao dịch và sự kiện có thể xem tại:  
-https://celo-sepolia.blockscout.com
+All transactions and events can be viewed at:  
+https://celo-sepolia.blockscout.com  
 
-Dán địa chỉ ví hoặc hợp đồng để kiểm tra lịch sử hoạt động.
+Enter your wallet or contract address to review the history and logs.
 
 ---
 
-## 8. Mô hình kinh tế (Token Flow)
+## 8. Economic Model (Token Flow)
 
 ```
-Người chơi / người xem → gửi CELO → Smart Contract → Nhà tổ chức / người sáng tạo nhận CELO
+Player / Viewer → sends CELO → Smart Contract → Organizer / Creator receives CELO
 ```
 
-Tất cả giao dịch đều được thực hiện trên chuỗi khối Celo, đảm bảo tính minh bạch và truy xuất được.
+All transactions are executed on-chain using CELO, ensuring transparency and verifiability.
 
 ---
 
-## 9. Bảo mật và mở rộng
+## 9. Security and Scalability
 
-- Các hợp đồng sử dụng `ReentrancyGuard` để ngăn tấn công tái nhập.  
-- Chỉ sử dụng **CELO gốc**, không phụ thuộc vào token ERC-20.  
-- Có thể mở rộng thêm:
-  - Cơ chế `Pausable` hoặc `AccessControl` cho quản trị.  
-  - Giao diện web bằng React + ethers.js.  
-  - Triển khai lại trên **Celo Mainnet** với cùng mã nguồn.
+- Contracts use `ReentrancyGuard` to prevent reentrancy attacks.  
+- Only native **CELO** is used (no ERC-20 dependency).  
+- Potential extensions:
+  - Add `Pausable` or `AccessControl` for admin management.  
+  - Build a web interface (React + ethers.js).  
+  - Deploy the same contracts on **Celo Mainnet** after testing.
 
 ---
 
-## 10. Giấy phép
+## 10. License
 
 ```
 SPDX-License-Identifier: MIT
 ```
 
-Dự án mã nguồn mở, được phép sử dụng và chỉnh sửa cho mục đích học tập hoặc nghiên cứu.
+Open-source project — free for educational and research use.
 
 ---
 
-## 11. Tác giả
+## 11. Author
 
-**Phạm Quang Khải (ka31504)**  
-Khoa Công nghệ Thông tin – Đại học Phenikaa  
+**Pham Quang Khai (ka31504)**  
+Faculty of Information Technology – Phenikaa University  
 GitHub: [https://github.com/ka31504](https://github.com/ka31504)  
 LinkedIn: [https://linkedin.com/in/khaipham315](https://linkedin.com/in/khaipham315)
 
+---
